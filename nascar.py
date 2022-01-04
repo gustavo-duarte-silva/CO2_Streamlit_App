@@ -2,9 +2,11 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path
 
 def Main():
-    df = pd.read_csv('C:\\Users\\arno4\\Desktop\\Gustavo\\Python\\NASCAR\\dataframe.csv')
+    my_csv =  Path(__file__).parents[1] / 'NASCAR/dataframe.csv'
+    df = pd.read_csv(my_csv)
     names = df['Winner_Manufacturer'].value_counts().index
     values = df['Winner_Manufacturer'].value_counts()
 
